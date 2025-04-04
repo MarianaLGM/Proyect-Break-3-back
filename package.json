@@ -1,0 +1,17 @@
+{
+  "name": "proyect-break-3_back",
+  "version": "1.0.0",
+  "description": "\"# Proyect-Break-3-back\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "5.1.0",
+    "mongodb": "6.15.0"
+  }
+}
