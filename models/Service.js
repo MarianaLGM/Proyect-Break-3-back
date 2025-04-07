@@ -1,12 +1,21 @@
 const mongoose = require('mongoose');
 
 const ServicesSchema = new mongoose.Schema({
+    image:{
+        type: String,
+        required: true
+    },
     title: {
         type: String,
         required: true
     },
     description: {
         type: String,
+        required: true
+    },
+    category:{
+        type: String,
+        enum: ['Tratamiento facial', 'Tratamiento corporal'],
         required: true
     },
     price: {
@@ -17,6 +26,8 @@ const ServicesSchema = new mongoose.Schema({
         type: String,
         required: true
     }
-});
+}, { timestamps: true });
 
-export default ServicesSchema
+const Service = mongoose.model('Service', ServicesSchema);
+
+module.exports = Service;
