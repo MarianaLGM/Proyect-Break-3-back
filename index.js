@@ -14,11 +14,11 @@ const routes = require('./routes/services');
 
 app.use('/', routes);
 
-/*app.use("*", (req, res, next) => {
+app.use("*", (req, res, next) => {
     const error = new Error("Route not found");
     error.status = 404;
     return next(error)
-}) */
+}) 
 
 dbConnection()//conexión bbdd mongoo
 
