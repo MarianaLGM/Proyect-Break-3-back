@@ -1,5 +1,6 @@
 
 const express = require('express');
+const dbConnection = require('./config/config')
 
 const app = express();
 
@@ -9,6 +10,7 @@ app.get('/', (req, res) => {
     res.send('¡Hola, Adni!');
 });
 
+dbConnection()
 
 app.listen(PORT, () => {
     console.log(`Express está escuchando en el puerto http://localhost:${PORT}`)
