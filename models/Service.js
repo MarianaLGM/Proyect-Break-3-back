@@ -21,5 +21,8 @@ const ServicesSchema = new mongoose.Schema({
 
 // Modelo de usuario
 const Service = mongoose.model('Service', ServicesSchema);
+<<<<<<< HEAD
 
+=======
+>>>>>>> b18dd92ebd7165d6653aaa143c239fb33abbce80
 module.exports = Service;
