@@ -9,6 +9,7 @@ app.get('/', (req, res) => {
     res.send('¡Hola, Adni!');
 });
 
+
 app.listen(PORT, () => {
-    console.log(`Servidor escuchando en el puerto ${PORT}`);
-});
+    console.log(`Express está escuchando en el puerto http://localhost:${PORT}`)
+    })
