@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const servicesSchema = new mongoose.Schema({
+const ServicesSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true
@@ -20,6 +20,5 @@ const servicesSchema = new mongoose.Schema({
 });
 
 // Modelo de usuario
-const Service = mongoose.model('Service', userSchema);
-
+const Service = mongoose.model('Service', ServicesSchema);
 module.exports = Service;
