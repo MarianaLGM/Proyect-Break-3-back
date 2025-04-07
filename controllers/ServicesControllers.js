@@ -10,6 +10,7 @@ const ServicesControllers = {
             res.status(500). send ('Error al crear el servicio')
         }
     },
+    
     async getAll (req, res) {
         try {
             const service = await Service.find();
@@ -29,7 +30,27 @@ const ServicesControllers = {
             res.status(500). send ('Error al obtener el servicio')
         }
     },
-    
+/*
+    async getTratamientosFaciales (req, res) { // Obtener TRATAMIENTOS FACIALES
+        try {
+        const services = await Service.find({ category: 'Tratamiento facial' });
+        res.json(services)
+        } catch (error) {
+            console.log(error)
+            res.status(500). send ('Error al obtener los tratamientos faciales')
+        }
+    },
+
+    async getTratamientosCorporales (req, res) { // Obtener TRATAMIENTOS FACIALES
+        try {
+        const services = await Service.find({ category: 'Tratamiento corporal' });
+        res.json(services)
+        } catch (error) {
+            console.log(error)
+            res.status(500). send ('Error al obtener los tratamientos corporales')
+        }
+    },*/
+
     async updateById(req, res) {
         try {
         const id = req.params._id
@@ -63,8 +84,8 @@ const ServicesControllers = {
             console.log(error)
             res.status(500). send ('Error al eliminar el servicio')
         }
-    }
+    },
 
-    }
+}
 
-    module.exports = ServicesControllers;
+module.exports = ServicesControllers;
