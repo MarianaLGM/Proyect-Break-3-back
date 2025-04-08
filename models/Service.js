@@ -25,6 +25,10 @@ const ServicesSchema = new mongoose.Schema({
     duration: {
         type: String,
         required: true
+    },
+    more:{
+        type: String,
+        required: true
     }
 }, { timestamps: true });
 

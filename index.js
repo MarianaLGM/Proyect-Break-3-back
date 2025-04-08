@@ -10,13 +10,8 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 const servicesRoutes = require('./routes/servicesRoutes');
-app.use('/', servicesRoutes);
 
-app.use("*", (req, res, next) => {
-    const error = new Error("Route not found");
-    error.status = 404;
-    return next(error)
-}) 
+app.use('/', servicesRoutes);
 
 dbConnection()//conexión bbdd mongoo
 

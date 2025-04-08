@@ -30,7 +30,7 @@ const ServicesControllers = {
             res.status(500). send ('Error al obtener el servicio')
         }
     },
-/*
+
     async getTratamientosFaciales (req, res) { // Obtener TRATAMIENTOS FACIALES
         try {
         const services = await Service.find({ category: 'Tratamiento facial' });
@@ -49,7 +49,7 @@ const ServicesControllers = {
             console.log(error)
             res.status(500). send ('Error al obtener los tratamientos corporales')
         }
-    },*/
+    },
 
     async updateById(req, res) {
         try {
