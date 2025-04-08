@@ -23,9 +23,15 @@ app.get('/', (req, res) => {
     res.send('¡Hola, Adni!');
 });
 
+dbConnection()//conexión bbdd mongoo
 app.use('/', authRoutes);
+app.use('/', routes);
 
-dbConnection()
+app.use("*", (req, res, next) => {
+    const error = new Error("Route not found");
+    error.status = 404;
+    return next(error)
+}) 
 
 app.listen(PORT, () => {
     console.log(`Express está escuchando en el puerto http://localhost:${PORT}`)
