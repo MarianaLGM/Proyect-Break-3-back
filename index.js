@@ -5,6 +5,7 @@ const admin = require('firebase-admin');
 const serviceAccount = require('./config/firebase.js');
 const cookieParser = require('cookie-parser');
 const authRoutes = require('./routes/authRoutes');
+const routes = require('./routes/services');
 require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -18,20 +19,9 @@ app.use(express.urlencoded({ extended: true }));////REQUERIR Y ACCEDER URLENCODE
 app.use(express.json());
 app.use(cookieParser());
 
-
-app.get('/', (req, res) => {
-    res.send('¡Hola, Adni!');
-});
-
 dbConnection()//conexión bbdd mongoo
 app.use('/', authRoutes);
-app.use('/', routes);
-
-app.use("*", (req, res, next) => {
-    const error = new Error("Route not found");
-    error.status = 404;
-    return next(error)
-}) 
+app.use('/', routes); 
 
 app.listen(PORT, () => {
     console.log(`Express está escuchando en el puerto http://localhost:${PORT}`)

@@ -46,15 +46,14 @@ const loginPost = async (req, res) => {
   try {
           
     const {email, password} = req.body;
-    //console.log(email)
+    console.log(req.body)
     const userCredential = await signInWithEmailAndPassword(authSignIn, email, password);
     const user = userCredential.user;
-    console.log(userCredential)
 
     const idToken = await user.getIdToken();
-    console.log('Token enviado', idToken);
+    //console.log('Token enviado', idToken);
   
-    const response = await fetch(`/login`, {
+    const response = await fetch(`http://localhost:${process.env.PORT}/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -62,11 +61,11 @@ const loginPost = async (req, res) => {
       body: JSON.stringify({idToken})
     })
   
-    console.log('Cuerpo de la solicitud enviado', {idToken})
+    //console.log('Cuerpo de la solicitud enviado', {idToken})
   
     const data = await response.json();
   
-    console.log('Datos recibidos en /login:', req.body);
+   //console.log('Datos recibidos en /login:', req.body);
 
     if(!idToken) {
       return res.status(400).json({success: false, message: 'Token no recibido'})
@@ -75,7 +74,7 @@ const loginPost = async (req, res) => {
     await admin.auth().verifyIdToken(idToken);
     
     res.cookie('token', idToken, {httpOnly: true, secure: false});
-    
+    console.log('Conectado!!!')
     res.redirect('/admin');
 
   } catch (error) {
