@@ -19,4 +19,4 @@ const ServicesSchema = new mongoose.Schema({
     }
 });
 
-export default ServicesSchema
+module.exports = ServicesSchema
