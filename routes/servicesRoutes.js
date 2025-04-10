@@ -1,23 +1,15 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 const ServicesControllers = require('../controllers/ServicesControllers');
+const verifyToken = require("../middlewares/verifyToken");
 
-//Rutas cliente
-router.get('/tratamientos-faciales', ServicesControllers.getTratamientosFaciales); // Obtener tratamientos faciales
-router.get('/tratamientos-corporales', ServicesControllers.getTratamientosCorporales); // Obtener tratamientos corporales
+router.post("/create", ServicesControllers.create)
+router.get('/', ServicesControllers.getAll )
+router.get('/id/:_id', verifyToken, ServicesControllers.getByID)
+router.put('/id/:_id', verifyToken, ServicesControllers.updateById) 
+router.delete('/id/:_id', verifyToken, ServicesControllers.deleteService )
 
-//Rutas administrador 
-router.post('/admin/create', ServicesControllers.create); // Crear servicio
-router.get('/admin', ServicesControllers.getAll); // Obtener todos los servicios
-router.get('/admin/id/:_id', ServicesControllers.getByID); // Obtener servicio por ID
-router.put('/admin/id/:_id', ServicesControllers.updateById); // Actualizar servicio por ID
-router.delete('/admin/id/:_id', ServicesControllers.deleteService); // Eliminar servicio por ID
-//router.post('/:category', ServicesControllers.getTratamientosPorCategoria);//crear nueva categoría
+router.get('/tratamientos-faciales', ServicesControllers.getByTratamientoFacial)
+router.get('/tratamientos-corporales',ServicesControllers.getByTratamientoCorporal)
 
-module.exports = router;
-
-
-
-
-
-
+module.exports = router

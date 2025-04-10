@@ -31,26 +31,27 @@ const ServicesControllers = {
         }
     },
 
-    async getTratamientosFaciales (req, res) { // Obtener TRATAMIENTOS FACIALES
+    async getByTratamientoFacial (req, res) {
         try {
-        const services = await Service.find({ category: 'Tratamiento facial' });
-        res.json(services)
+        const service = await Service.find({category:'Tratamiento facial'});
+        res.json(service)
         } catch (error) {
             console.log(error)
             res.status(500). send ('Error al obtener los tratamientos faciales')
         }
     },
 
-    async getTratamientosCorporales (req, res) { // Obtener TRATAMIENTOS FACIALES
+    async getByTratamientoCorporal (req, res) {
         try {
-        const services = await Service.find({ category: 'Tratamiento corporal' });
-        res.json(services)
+        const service = await Service.find({category:'Tratamiento corporal'});
+        res.json(service)
         } catch (error) {
             console.log(error)
             res.status(500). send ('Error al obtener los tratamientos corporales')
         }
     },
 
+    
     async updateById(req, res) {
         try {
         const id = req.params._id
