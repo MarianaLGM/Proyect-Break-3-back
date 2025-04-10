@@ -27,8 +27,8 @@ const registerPost = async (req, res) => {
       email,
       password
     })
-    res.status(200).json({ success: true, message: 'Usuario registrado' }); 
-    
+    res.status(200).json({ success: true, message: 'Usuario registrado' });
+
   } catch (error) {
     console.error(`Error interno de registro: ${error}`);
     res.redirect('/register')
@@ -37,16 +37,33 @@ const registerPost = async (req, res) => {
 
 //Comprobación de auténticación para continuar al /admin
 const loginPost = async (req, res) => {
+  const { token } = req.body;
 
-  const user = req.user;
-  console.log("Usuario autenticado:", user.uid);
-  res.status(200).json({ message: "Autenticación exitosa", user });
+  try {
+    const decoded = await admin.auth().verifyIdToken(token);
+    console.log("Usuario autenticado:", decoded.uid);
+
+    res.cookie('token', token, {
+      httpOnly: true,
+      secure: false,
+      sameSite: 'Lax',
+      maxAge: 3600000, // 1 hora
+    });
+
+    res.status(200).json({ message: "Autenticación exitosa", user: decoded });
+
+  } catch (error) {
+    console.error("Token inválido:", error.message);
+    res.status(401).json({ message: "Token inválido" });
+  }
+
+
 }
 
 //Cierre de sesión, redirige a /login
 const logoutPost = (req, res) => {
   res.clearCookie('token', { httpOnly: true, secure: false });   // Limpiar la cookie del token-entorno desarrollo secure: false
-  console.log(token)
+  res.status(200).json({ message: 'Sesión cerrada' });
 };
 
 
