@@ -28,11 +28,7 @@ app.use(cookieParser());
 
 dbConnection()//conexión bbdd mongoo
 app.use('/', authRoutes);
-<<<<<<< HEAD
-app.use('/', routes);
-=======
 app.use('/', servicesRoutes); 
->>>>>>> 32b5730e6399e8c023fcaa0cd313f015c16629bd
 
 app.listen(PORT, () => {
     console.log(`Express está escuchando en el puerto http://localhost:${PORT}`)
