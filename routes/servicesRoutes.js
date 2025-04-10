@@ -3,7 +3,7 @@ const router = express.Router()
 const ServicesControllers = require('../controllers/ServicesControllers');
 const verifyToken = require("../middlewares/verifyToken");
 
-router.post("/create", ServicesControllers.create)
+router.post("/create", verifyToken, ServicesControllers.create)
 router.get('/', ServicesControllers.getAll )
 router.get('/id/:_id', verifyToken, ServicesControllers.getByID)
 router.put('/id/:_id', verifyToken, ServicesControllers.updateById) 
