@@ -5,11 +5,18 @@ const admin = require('firebase-admin');
 const serviceAccount = require('./config/firebase.js');
 const cookieParser = require('cookie-parser');
 const authRoutes = require('./routes/authRoutes');
-const routes = require('./routes/services');
+const servicesRoutes = require('./routes/servicesRoutes.js');
 require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 const cors = require('cors');
+
+const corsOptions = {
+  origin: 'http://localhost:5173', // El origen de tu app en React
+  credentials: true, // 🔥 Importante para que las cookies funcionen
+};
+
+app.use(cors(corsOptions));
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
@@ -21,7 +28,11 @@ app.use(cookieParser());
 
 dbConnection()//conexión bbdd mongoo
 app.use('/', authRoutes);
+<<<<<<< HEAD
 app.use('/', routes);
+=======
+app.use('/', servicesRoutes); 
+>>>>>>> 32b5730e6399e8c023fcaa0cd313f015c16629bd
 
 app.listen(PORT, () => {
     console.log(`Express está escuchando en el puerto http://localhost:${PORT}`)

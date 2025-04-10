@@ -20,79 +20,37 @@ const authSignIn = getAuth(app);
 
 //Envío de datos del administrador para crear una cuenta de usuario.
 const registerPost = async (req, res) => {
-  const {email, password} = req.body;
+  const { email, password } = req.body;
 
   try {
     await admin.auth().createUser({
       email,
       password
     })
-
-    res.redirect('/login')
-
+    res.status(200).json({ success: true, message: 'Usuario registrado' }); 
+    
   } catch (error) {
     console.error(`Error interno de registro: ${error}`);
     res.redirect('/register')
   }
 }
 
-const login = (req, res) => {
-  res.sendFile(path.join(__dirname,'..', 'utils', 'login.html'));
-}
-
 //Comprobación de auténticación para continuar al /admin
 const loginPost = async (req, res) => {
 
-  try {
-          
-    const {email, password} = req.body;
-    console.log(req.body)
-    const userCredential = await signInWithEmailAndPassword(authSignIn, email, password);
-    const user = userCredential.user;
-
-    const idToken = await user.getIdToken();
-    //console.log('Token enviado', idToken);
-  
-    const response = await fetch(`http://localhost:${process.env.PORT}/login`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-    },
-      body: JSON.stringify({idToken})
-    })
-  
-    //console.log('Cuerpo de la solicitud enviado', {idToken})
-  
-    const data = await response.json();
-  
-   //console.log('Datos recibidos en /login:', req.body);
-
-    if(!idToken) {
-      return res.status(400).json({success: false, message: 'Token no recibido'})
-    }
-
-    await admin.auth().verifyIdToken(idToken);
-    
-    res.cookie('token', idToken, {httpOnly: true, secure: false});
-    console.log('Conectado!!!')
-    res.redirect('/admin');
-
-  } catch (error) {
-    console.log(`Error al verificar el administrador, ${error}`);
-    res.status(401).json({success: false, message: 'Token inválido'})
-  }
+  const user = req.user;
+  console.log("Usuario autenticado:", user.uid);
+  res.status(200).json({ message: "Autenticación exitosa", user });
 }
 
 //Cierre de sesión, redirige a /login
-const logoutPost= (req, res) => {
+const logoutPost = (req, res) => {
   res.clearCookie('token', { httpOnly: true, secure: false });   // Limpiar la cookie del token-entorno desarrollo secure: false
-    
-  res.redirect('/')
+  console.log(token)
 };
 
 
 module.exports = {
-  login,
   registerPost,
   loginPost,
   logoutPost
