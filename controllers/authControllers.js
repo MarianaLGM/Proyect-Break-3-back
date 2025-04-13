@@ -1,5 +1,5 @@
 const { initializeApp } = require('firebase/app');
-const { getAuth, signInWithEmailAndPassword } = require('firebase/auth');
+const { getAuth } = require('firebase/auth');
 const admin = require('firebase-admin');
 const path = require('path');
 //const auth = admin.auth();
