@@ -1,4 +1,5 @@
 const Service = require('../models/Service')
+const Appointment = require('../models/Appointment')
 
 const ServicesControllers = {
     async create (req, res) {
@@ -39,7 +40,6 @@ const ServicesControllers = {
             res.status(500). send ('Error al obtener los tratamientos faciales')
         }
     },
-
 
     async getByTratamientoCorporal (req, res) {
         try {
@@ -88,4 +88,20 @@ const ServicesControllers = {
 
     }
 
-    module.exports = ServicesControllers;
+    const AppointmentsControllers = {
+        async create (req, res) {
+            try {
+                console.log('REQ.BODY:', req.body)
+                const appointment = await Appointment.create({...req.body})
+                res.status(201).send(appointment)
+            } catch (error) {
+            console.log(error)
+                res.status(500). send ('Error al reservar la cita')
+            }
+        },
+    }
+
+    module.exports = {
+        ServicesControllers,
+        AppointmentsControllers
+    }
