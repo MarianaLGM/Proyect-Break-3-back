@@ -13,5 +13,6 @@ router.get('/tratamientos-faciales', ServicesControllers.getByTratamientoFacial)
 router.get('/tratamientos-corporales',ServicesControllers.getByTratamientoCorporal)
 
 router.post("/appointment", AppointmentsControllers.create)
+router.get("/appointment", AppointmentsControllers.getAll)
 
 module.exports = router

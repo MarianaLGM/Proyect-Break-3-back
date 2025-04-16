@@ -2,7 +2,7 @@ const admin = require('firebase-admin');
 
 const verifyToken = async (req, res, next) => {
     const token = req.cookies.token;
-    console.log("Cookies recibidas:", req.cookies);
+    //console.log("Cookies recibidas:", req.cookies);
 
     if (!token) return res.status(401).json({ message: 'No token provided' });
   

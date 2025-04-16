@@ -16,7 +16,7 @@ const AppointmentsSchema = new mongoose.Schema({
             'Acmella Oleracea', 
             'Láser CO2 fraccionado', 
             'Limpieza Facial Detox Skin', 
-            'Limpieza Facia Premium', 
+            'Limpieza Facial Premium', 
             'Láser para eliminar estrías', 
             'Láser para eliminar varices', 
             'Imperium', 
