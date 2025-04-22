@@ -41,7 +41,6 @@ const ServicesControllers = {
         }
     },
 
-
     async getByTratamientoCorporal (req, res) {
         try {
         const service = await Service.find({category:'Tratamiento corporal'});
@@ -89,4 +88,36 @@ const ServicesControllers = {
 
     }
 
-    module.exports = ServicesControllers;
+    const AppointmentsControllers = {
+        async create (req, res) {
+            try {
+                const appointment = await Appointment.create({...req.body})
+                res.status(201).send(appointment)
+            } catch (error) {
+            console.log(error)
+                res.status(500). send ('Error al reservar la cita')
+            }
+        },
+        async getAll (req, res) {
+            try {
+                const appointment = await Appointment.find();
+                //console.log(appointment)
+                res.json(appointment);
+            } catch (error) {
+                console.log(error)
+                res.status(500). send ('Error al obtener las citas')
+            }
+        }
+    }
+
+    module.exports = {
+        ServicesControllers,
+        AppointmentsControllers
+    }
+
+
+
+
+
+
+
