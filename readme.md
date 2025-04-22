@@ -204,5 +204,4 @@ Utilizamos firebase-admin para:
 
 
 ************************************************AUTORES*************************************************
-## Autores
 [Adni Sosa](https://github.com/AdniSosa)  | [Mariana Lobeto](https://github.com/MarianaLGM)
