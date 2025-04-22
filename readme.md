@@ -34,8 +34,6 @@ Proyecto realizado como requisito del Bootcamp Full Stack Developer de The Bridg
 
 ****************************************TECNOLOGÍAS UTILIZADAS**************************************************
 
-## Tecnologías utilizadas
-
 - **Node.js** – Entorno de ejecución para JavaScript en el servidor.
 - **Express.js** – Framework minimalista para crear la API REST.
 - **MongoDB** – Base de datos NoSQL.
@@ -58,10 +56,6 @@ Proyecto realizado como requisito del Bootcamp Full Stack Developer de The Bridg
 ### 📁 models
 - Contiene los modelos de la bbdd. Un modelo para la gestión de servicios y otro para la gestión de las citas.
 
-### controlllers
-- controllers/authControllers.js: Archivo que contiene la configuración de firebase y la lógica para manejar tanto la creación de usuario, como el registro, inicio y cierre de sesión del administrador utilizando Firebase. Devuelve las respuestas en formato HTML.
-- controllers/productController.js: Archivo que contiene la lógica para manejar las solicitudes CRUD de los productos. Devuelve las respuestas en formato HTML.
-
 ### 📁 middlewares
 - middlewares/verifyToken.js: Archivo que contiene el middleware para comprobar si el usuario está autenticado. Este busca la sesión del usuario y, si no la encuentra, redirige al formulario de login.
 
@@ -75,20 +69,19 @@ Proyecto realizado como requisito del Bootcamp Full Stack Developer de The Bridg
 - package.json: Archivo que contendrá las dependencias del proyecto. Se debe hacer ```npm i``` para instalar todas las dependencias necesarias para que el proyecto funcione. (npm start)
 
 **********************************************SERVIDOR***********************************************
-## Servidor
 
-express: Framework para crear el servidor.
+- `express`: Framework para crear el servidor.
 
-mongoose: Conexión a la base de datos MongoDB.
+- `mongoose`: Conexión a la base de datos MongoDB.
 
-dotenv: Para cargar las variables de entorno desde un archivo .env.
+- `dotenv`: Para cargar las variables de entorno desde un archivo .env.
 
-cookie-parser: Para manejar cookies de autenticación.
+- `cookie-parser`: Para manejar cookies de autenticación.
 
-firebase-admin: Para manejar la autenticación con Firebase.
+- `firebase-admin`: Para manejar la autenticación con Firebase.
 
 ******************************************************BBDD**********************************************************
-## Base de datos
+
 La base de datos se gestiona mediante MongoDB Atlas.
 
 Una vez creada la base de datos, copiamos la uri y la guardamos en el archivo .env
@@ -96,7 +89,6 @@ Una vez creada la base de datos, copiamos la uri y la guardamos en el archivo .e
 MONGO_URI=<uri_bd_atlas>
 
 *******************************************************MODELOS******************************************************
-## Modelos
 
 ### Services
 
@@ -108,6 +100,7 @@ MONGO_URI=<uri_bd_atlas>
 - Precio, tipo NÚMERO
 
 ### Appointment
+
 - Dia, tipo STRING
 - Hora, tipo STRING
 - Servicio ('Terapia Facial Revitaluxe', 'Luminova - Fotoregeneración Avanzada', 'Limpieza Facial PureGlow', 
@@ -176,8 +169,25 @@ POSTMAN:
 
 - `logoutPost`: Cierre de sessión.
 
+
+**********************************************SERVIDOR***********************************************
+
+Este servidor está construido con Node.js y Express, y gestiona:
+
+- Levantamos el servidor npm start.
+
+- Autenticación con Firebase.
+
+- Conexión y operaciones con la base de datos MongoDB (a través de Mongoose).
+
+- Rutas para servicios y citas.
+
+- Middleware para el manejo de cookies, JSON y formularios.
+
+- CORS configurado para permitir la conexión desde el frontend.
+
+
 **********************************************DESPLIEGUE***********************************************
-## Despliegue
 
 
 
@@ -185,23 +195,12 @@ POSTMAN:
 
 
 **********************************************FIREBASE***********************************************
-## Firebase
 
-FRONTEND
+Utilizamos firebase-admin para:
 
-Utilizamos Firebase para la autenticación del administrador o administradores del sitio web. 
+- Registrar nuevos usuarios (createUser).
 
-Se usa la librería firebase para iniciar sesión y obtener el token del usuario.
-
-Este token se envía al backend para su verificación.
-
-BACKEND
-
-Se utiliza firebase-admin para:
-
-Registrar nuevos usuarios (createUser).
-
-Verificar tokens enviados desde el frontend (verifyIdToken).
+- Verificar tokens enviados desde el frontend (verifyIdToken).
 
 
 ************************************************AUTORES*************************************************
