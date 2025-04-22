@@ -12,15 +12,14 @@ const AppointmentsSchema = new mongoose.Schema({
     servicio: {
         type: String,
         enum: [
-            'Armonización facial', 
-            'Acmella Oleracea', 
-            'Láser CO2 fraccionado', 
-            'Limpieza Facial Detox Skin', 
-            'Limpieza Facial Premium', 
-            'Láser para eliminar estrías', 
-            'Láser para eliminar varices', 
-            'Imperium', 
-            'Zionic'],
+            'Terapia Facial Revitaluxe', 
+            'Luminova - Fotoregeneración Avanzada', 
+            'Limpieza Facial PureGlow', 
+            'Limpieza Facial RenewUp', 
+            'Tratamiento Reafirmante Imperium Cell', 
+            'Zionic Remodelación Corporal Activa', 
+            'Tratamiento Estrías', 
+            'Acmella Oleracea - Lifting Natural'],
         required: true
     },
     nombre: {
