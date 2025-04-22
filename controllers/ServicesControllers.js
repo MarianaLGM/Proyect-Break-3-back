@@ -1,4 +1,5 @@
 const Service = require('../models/Service')
+const Appointment = require('../models/Appointment')
 
 const ServicesControllers = {
     async create (req, res) {
@@ -40,36 +41,6 @@ const ServicesControllers = {
         }
     },
 
-    async getByTratamientoFacialId (req, res) {
-        const id = req.params._id;
-        try {
-            const service = await Service.findById(id);
-            if (!service) {
-                return res.status(404).json({ message: 'Tratamiento facial no encontrado' });
-            }
-    
-            res.json(service);
-        } catch (error) {
-            console.log(error);
-            res.status(500).send('Error al obtener el tratamiento facial');
-        }
-    },
-
-
-    async getByTratamientoCorporalId (req, res) {
-        const id = req.params._id;
-        try {
-            const service = await Service.findById(id);
-            if (!service) {
-                return res.status(404).json({ message: 'Tratamiento corporal no encontrado' });
-            }
-    
-            res.json(service);
-        } catch (error) {
-            console.log(error);
-            res.status(500).send('Error al obtener el tratamiento corporal');
-        }
-    },
 
     async getByTratamientoCorporal (req, res) {
         try {
@@ -119,5 +90,3 @@ const ServicesControllers = {
     }
 
     module.exports = ServicesControllers;
-
-

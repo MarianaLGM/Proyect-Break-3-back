@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const ServicesControllers = require('../controllers/ServicesControllers');
+const {ServicesControllers, AppointmentsControllers} = require('../controllers/ServicesControllers');
 const verifyToken = require("../middlewares/verifyToken");
 
 router.post("/create", verifyToken, ServicesControllers.create)
@@ -15,5 +15,7 @@ router.get('/tratamientos-faciales', ServicesControllers.getByTratamientoFacial)
 router.get('/tratamientos-corporales/mas-info/id/:_id',ServicesControllers.getByTratamientoCorporalId)
 router.get('/tratamientos-corporales',ServicesControllers.getByTratamientoCorporal)
 
-module.exports = router
+router.post("/appointment", AppointmentsControllers.create)
+router.get("/appointment", AppointmentsControllers.getAll)
 
+module.exports = router
