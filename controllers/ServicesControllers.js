@@ -11,7 +11,6 @@ const ServicesControllers = {
             res.status(500). send ('Error al crear el servicio')
         }
     },
-    
     async getAll (req, res) {
         try {
             const service = await Service.find();
@@ -51,7 +50,6 @@ const ServicesControllers = {
             res.status(500). send ('Error al obtener los tratamientos corporales')
         }
     },
-
     
     async updateById(req, res) {
         try {
@@ -86,8 +84,33 @@ const ServicesControllers = {
             console.log(error)
             res.status(500). send ('Error al eliminar el servicio')
         }
-    },
+    }
 
-}
+    }
 
-    module.exports = ServicesControllers;
+    const AppointmentsControllers = {
+        async create (req, res) {
+            try {
+                const appointment = await Appointment.create({...req.body})
+                res.status(201).send(appointment)
+            } catch (error) {
+            console.log(error)
+                res.status(500). send ('Error al reservar la cita')
+            }
+        },
+        async getAll (req, res) {
+            try {
+                const appointment = await Appointment.find();
+                //console.log(appointment)
+                res.json(appointment);
+            } catch (error) {
+                console.log(error)
+                res.status(500). send ('Error al obtener las citas')
+            }
+        }
+    }
+
+    module.exports = {
+        ServicesControllers,
+        AppointmentsControllers
+    }
