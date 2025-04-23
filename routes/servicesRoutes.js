@@ -5,7 +5,7 @@ const verifyToken = require("../middlewares/verifyToken");
 
 router.post("/create", verifyToken, ServicesControllers.create)
 router.get('/', ServicesControllers.getAll )
-router.get('/id/:_id', verifyToken, ServicesControllers.getByID)
+router.get('/id/:_id', ServicesControllers.getByID)
 router.put('/id/:_id', verifyToken, ServicesControllers.updateById) 
 router.delete('/id/:_id', verifyToken, ServicesControllers.deleteService )
 
