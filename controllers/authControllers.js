@@ -60,7 +60,7 @@ const loginPost = async (req, res) => {
 
 }
 
-//Cierre de sesión, redirige a /login
+//Cierre de sesión
 const logoutPost = (req, res) => {
   res.clearCookie('token', { httpOnly: true, secure: false });   // Limpiar la cookie del token-entorno desarrollo secure: false
   res.status(200).json({ message: 'Sesión cerrada' });
