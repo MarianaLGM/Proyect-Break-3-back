@@ -12,8 +12,8 @@ const PORT = process.env.PORT || 3000;
 const cors = require('cors');
 
 const corsOptions = {
-  origin: 'http://localhost:5173', // El origen de tu app en React
-  credentials: true, // 🔥 Importante para que las cookies funcionen
+  origin: 'http://localhost:5173', // URL React. Cambiar cuando se tenga un dominio
+  credentials: true, // Importante para que las cookies funcionen
 };
 
 app.use(cors(corsOptions));

@@ -1,4 +1,5 @@
 const Service = require('../models/Service')
+const Appointment = require('../models/Appointment')
 
 const ServicesControllers = {
     async create (req, res) {
@@ -89,4 +90,4 @@ const ServicesControllers = {
 
 }
 
-module.exports = ServicesControllers;
+    module.exports = ServicesControllers;
