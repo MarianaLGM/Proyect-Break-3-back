@@ -1,5 +1,5 @@
 **************************************CENTRO DE ESTÉTICA********************************************************
-![Logo tienda de ropa](https://res.cloudinary.com/dljpuje5r/image/upload/v1745252932/Tova_cn1yyn.png)
+![Logo centro de estética](https://res.cloudinary.com/dljpuje5r/image/upload/v1745252932/Tova_cn1yyn.png)
 
 
 ## ÍNDICE
@@ -17,22 +17,33 @@
 *[Autores](#Autores)
 
 ## Descripción del proyecto
-Proyecto realizado como requisito del Bootcamp Full Stack Developer de The Bridge. Centro de estética, donde los usuarios pueden agendar citas online y también dispone de una pasarela de pago para la compra de tarjetas regalo. A los administradores de la tienda, les permite crear un usuario e iniciar sesión para poder gestionar los productos: crear, editar o borrar cualquier artículo.
+Proyecto realizado como requisito del Bootcamp Full Stack Developer de The Bridge. Centro de estética, donde los usuarios pueden agendar citas online y también dispone de una pasarela de pago para la compra de tarjetas regalo. A los administradores de la estética, les permite crear un usuario e iniciar sesión, ya sea con correo y contraseña, o con una cuenta de Google. Ya inciados sesión, los administradores podrán gestionar los servicios: crear, editar o borrar cualquier artículo, además de visualizar todas las citas agendadas por los clientes.
 
 ## Funcionalidades del proyecto
-- `Registro de usuarios`: Permite el registro de usuarios para los administradores de la tienda online. Requiere de correo electrónico y contraseña (min. 6 caracteres).
-- `Inicio de sesión de usuarios`: Al iniciar sesión, el administrador podrá realizar funciones, como crear, editar o borrar un servicio.
+
+### Funcionalidades para el usuario
+
+Estas son las funcionalidades de las que el usuario de la página web podrá hacer uso:
+
 - `Clasificación de los tratamientos por categoría`: Permite una visión rápida de todos los tratamientos organizados por categorías: faciales y corporales.
-- `Ver detalles del servicio`: Permite visualizar todos los detalles del servicio haciendo click en "ver".
-- `Creación de nuevo servicio`: Permite crear un nuevo producto, introduciendo valores como titulo, descripción, duración categoría, precio y url de la imágen. Para esta funcionalidad debe haber realizado inicio de sesión.
-- `Editar un servicio`: Permite editar todos los campos rellenados en la creación del servicio. Para esta funcionalidad debe haber realizado inicio de sesión.
-- `Borrar un servicio`: Borra cualquier servicio. Para esta funcionalidad debe haber realizado inicio de sesión.
+- `Ver detalles del servicio`: Permite visualizar todos los detalles del servicio haciendo click en "Más información".
 - `Reserva`: Permite a los usuarios seleccionar fecha y hora para agendar un servicio de forma sencilla.
 - `Regala TOVA`: Opción para adquirir tarjetas regalo a través de una pasarela de pago segura.
 - `Contacto`: Canal directo para que los usuarios puedan realizar consultas o solicitar información personalizada.
 
+### Funcionalidades para el administrador
+
+Además de las funcionalidades del usuario, el administrador podrá hacer uso de estas funcionalidades: 
+
+- `Registro de usuarios`: Permite el registro de usuarios para los administradores de la tienda online. Requiere de correo electrónico y contraseña (min. 6 caracteres).
+- `Inicio de sesión de usuarios`: Inicio de sesión con correo y contraseña utilizados en el resgistro, o con una cuenta de Google. Al iniciar sesión, el administrador podrá realizar funciones, como crear, editar o borrar un servicio.
+- `Creación de nuevo servicio`: Permite crear un nuevo producto, introduciendo valores como titulo, descripción, duración, categoría, precio y url de la imágen. Para esta funcionalidad debe haber realizado inicio de sesión.
+- `Editar un servicio`: Permite editar todos los campos rellenados en la creación del servicio. Para esta funcionalidad debe haber realizado inicio de sesión.
+- `Borrar un servicio`: Borra cualquier servicio. Para esta funcionalidad debe haber realizado inicio de sesión.
+- `Visualización de citas reservadas`: Ver las citas reservadas eligiendo el día en el calendario. Los días con citas reservadas se podrán ver resaltadas en el calendario.
 
 ****************************************TECNOLOGÍAS UTILIZADAS**************************************************
+## Tecnologías utilizadas
 
 - **Node.js** – Entorno de ejecución para JavaScript en el servidor.
 - **Express.js** – Framework minimalista para crear la API REST.
@@ -44,10 +55,11 @@ Proyecto realizado como requisito del Bootcamp Full Stack Developer de The Bridg
 - **cookie-parser** – Middleware para manejar cookies en peticiones HTTP.
 
 ****************************************CARACTERÍSTICAS ARCHIVOS**************************************************
+## Característica de los archivos
 
 ### 📁 controllers
-- controllers/authControllers.js: Archivo que contiene la configuración de firebase y la lógica para manejar tanto la creación de usuario, como el registro, inicio y cierre de sesión del administrador utilizando Firebase. Devuelve las respuestas en formato HTML.
-- controllers/ServicesControllers.js: Archivo que contiene la lógica para manejar las solicitudes CRUD de los servicios. Devuelve las respuestas en formato HTML.
+- controllers/authControllers.js: Archivo que contiene la configuración de firebase y la lógica para manejar tanto la creación de usuario, como el registro, inicio y cierre de sesión del administrador utilizando Firebase.
+- controllers/ServicesControllers.js: Archivo que contiene la lógica para manejar las solicitudes CRUD de los servicios.
 
 ### 📁 routes
 - routes/servicesRoutes.js: Archivo que contiene la definición de las rutas CRUD para los servicios. Este llama a los métodos del controlador.
@@ -68,19 +80,8 @@ Proyecto realizado como requisito del Bootcamp Full Stack Developer de The Bridg
 ### 📄package.json
 - package.json: Archivo que contendrá las dependencias del proyecto. Se debe hacer ```npm i``` para instalar todas las dependencias necesarias para que el proyecto funcione. (npm start)
 
-**********************************************SERVIDOR***********************************************
-
-- `express`: Framework para crear el servidor.
-
-- `mongoose`: Conexión a la base de datos MongoDB.
-
-- `dotenv`: Para cargar las variables de entorno desde un archivo .env.
-
-- `cookie-parser`: Para manejar cookies de autenticación.
-
-- `firebase-admin`: Para manejar la autenticación con Firebase.
-
 ******************************************************BBDD**********************************************************
+## Base de datos
 
 La base de datos se gestiona mediante MongoDB Atlas.
 
@@ -89,6 +90,7 @@ Una vez creada la base de datos, copiamos la uri y la guardamos en el archivo .e
 MONGO_URI=<uri_bd_atlas>
 
 *******************************************************MODELOS******************************************************
+## Modelos
 
 ### Services
 
@@ -111,6 +113,7 @@ MONGO_URI=<uri_bd_atlas>
 
 *********************************************************RUTAS******************************************************
 ## Rutas
+
 POSTMAN:  https://documenter.getpostman.com/view/40898562/2sB2cVe22t
 
 ### services
@@ -119,26 +122,28 @@ POSTMAN:  https://documenter.getpostman.com/view/40898562/2sB2cVe22t
 
 - `GET /create`: Crea un servicio si el administrador está logado.
 
-- `GET /id/:_id`: Devuelve el detalle de un servicio.
-- `PUT /id/:_id`: Crea un servicio si el administrador está logado.
+- `GET /id/:_id`: Busca el servicio por su id, y devuelve el detalle de un servicio.
+- `PUT /id/:_id`: Busca el servicio por su id, y lo actualiza o modifica si el administrador está logado.
 - `DELETE /id/:_id`: Elimina un servicio si el administrador está logado.
 
-- `GET /tratamientos-faciales`: obtiene las tratamientos faciales.
-- `GET /tratamientos-corporales`: obtiene las tratamientos corporales.
+- `GET /tratamientos-faciales`: obtiene los servicios de las tratamientos faciales.
+- `GET /tratamientos-corporales`: obtiene los servicios las tratamientos corporales.
 
 - `GET /appointment`: obtiene las citas agendadas.
 - `POST /appointment`: crea una cita.
 
 
-### user
+### Auth
 
 - `POST /register`: Registro de usuario para continuar al login.
 
-- `POST /login`: Comprobación de auténticación para continuar al dashboard.
+- `POST /login`: Comprobación de auténticación para continuar al /admin.
 
 - `POST /logout`: Cierra sesión.
 
 ****************************************************CONTROLADORES**************************************************
+## Controladores
+
 ### 📄 ServicesControllers.js
 
 - `create`: Crea un nuevo servicio con los datos que se pasan en el body (POST).
@@ -171,6 +176,7 @@ POSTMAN:  https://documenter.getpostman.com/view/40898562/2sB2cVe22t
 
 
 **********************************************SERVIDOR***********************************************
+## Servidor
 
 Este servidor está construido con Node.js y Express, y gestiona:
 
@@ -195,13 +201,18 @@ Este servidor está construido con Node.js y Express, y gestiona:
 
 
 **********************************************FIREBASE***********************************************
+## Firebase
 
 Utilizamos firebase-admin para:
 
-- Registrar nuevos usuarios (createUser).
+- Registrar o crea nuevos usuarios (createUser), con correo electrónico y contraseña.
 
-- Verificar tokens enviados desde el frontend (verifyIdToken).
+- Verifica al usuario, guarda el token en las cookies y le da acceso a las rutas del administrador.
+
+- Para hacer cierre de sesión, borra el token de las cookies.
 
 
 ************************************************AUTORES*************************************************
+## Autores
+
 [Adni Sosa](https://github.com/AdniSosa)  | [Mariana Lobeto](https://github.com/MarianaLGM)
