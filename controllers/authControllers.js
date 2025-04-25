@@ -41,12 +41,11 @@ const loginPost = async (req, res) => {
 
   try {
     const decoded = await admin.auth().verifyIdToken(token);
-    console.log("Usuario autenticado:", decoded.uid);
 
     res.cookie('token', token, {
       httpOnly: true,
-      secure: false,
-      sameSite: 'Lax',
+      secure: true,
+      sameSite: 'none',
       maxAge: 3600000, // 1 hora
     });
 

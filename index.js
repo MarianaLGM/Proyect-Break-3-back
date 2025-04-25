@@ -10,9 +10,10 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 const cors = require('cors');
+const helmet = require('helmet');
 
 const corsOptions = {
-  origin: 'http://localhost:5173', // URL React. Cambiar cuando se tenga un dominio
+  origin: process.env.URL_FRONTEND, // URL React. Cambiar cuando se tenga un dominio
   credentials: true, // Importante para que las cookies funcionen
 };
 
@@ -25,6 +26,7 @@ admin.initializeApp({
 app.use(express.urlencoded({ extended: true }));////REQUERIR Y ACCEDER URLENCODED Y JSON:  Middleware para manejar datos de formulario y JSON
 app.use(express.json());
 app.use(cookieParser());
+//app.use(helmet());
 
 dbConnection()//conexión bbdd mongoo
 app.use('/', authRoutes);

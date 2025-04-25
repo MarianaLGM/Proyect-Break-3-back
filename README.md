@@ -1,4 +1,4 @@
-**************************************CENTRO DE ESTÉTICA********************************************************
+**CENTRO DE ESTÉTICA**
 ![Logo centro de estética](https://res.cloudinary.com/dljpuje5r/image/upload/v1745252932/Tova_cn1yyn.png)
 
 
@@ -42,7 +42,7 @@ Además de las funcionalidades del usuario, el administrador podrá hacer uso de
 - `Borrar un servicio`: Borra cualquier servicio. Para esta funcionalidad debe haber realizado inicio de sesión.
 - `Visualización de citas reservadas`: Ver las citas reservadas eligiendo el día en el calendario. Los días con citas reservadas se podrán ver resaltadas en el calendario.
 
-****************************************TECNOLOGÍAS UTILIZADAS**************************************************
+
 ## Tecnologías utilizadas
 
 - **Node.js** – Entorno de ejecución para JavaScript en el servidor.
@@ -54,7 +54,7 @@ Además de las funcionalidades del usuario, el administrador podrá hacer uso de
 - **cors** – Middleware para habilitar el intercambio de recursos entre distintos orígenes.
 - **cookie-parser** – Middleware para manejar cookies en peticiones HTTP.
 
-****************************************CARACTERÍSTICAS ARCHIVOS**************************************************
+
 ## Característica de los archivos
 
 ### 📁 controllers
@@ -80,7 +80,7 @@ Además de las funcionalidades del usuario, el administrador podrá hacer uso de
 ### 📄package.json
 - package.json: Archivo que contendrá las dependencias del proyecto. Se debe hacer ```npm i``` para instalar todas las dependencias necesarias para que el proyecto funcione. (npm start)
 
-******************************************************BBDD**********************************************************
+
 ## Base de datos
 
 La base de datos se gestiona mediante MongoDB Atlas.
@@ -89,7 +89,6 @@ Una vez creada la base de datos, copiamos la uri y la guardamos en el archivo .e
 
 MONGO_URI=<uri_bd_atlas>
 
-*******************************************************MODELOS******************************************************
 ## Modelos
 
 ### Services
@@ -111,7 +110,6 @@ MONGO_URI=<uri_bd_atlas>
 - Telefono, tipo NÚMERO
 - Observaciones, tipo STRING
 
-*********************************************************RUTAS******************************************************
 ## Rutas
 
 POSTMAN:  https://documenter.getpostman.com/view/40898562/2sB2cVe22t
@@ -141,7 +139,6 @@ POSTMAN:  https://documenter.getpostman.com/view/40898562/2sB2cVe22t
 
 - `POST /logout`: Cierra sesión.
 
-****************************************************CONTROLADORES**************************************************
 ## Controladores
 
 ### 📄 ServicesControllers.js
@@ -174,8 +171,6 @@ POSTMAN:  https://documenter.getpostman.com/view/40898562/2sB2cVe22t
 
 - `logoutPost`: Cierre de sessión.
 
-
-**********************************************SERVIDOR***********************************************
 ## Servidor
 
 Este servidor está construido con Node.js y Express, y gestiona:
@@ -193,14 +188,11 @@ Este servidor está construido con Node.js y Express, y gestiona:
 - CORS configurado para permitir la conexión desde el frontend.
 
 
-**********************************************DESPLIEGUE***********************************************
+## Despliegue
+
+Despliegue del backend en Render --> https://proyect-break-3-back.onrender.com
 
 
-
-
-
-
-**********************************************FIREBASE***********************************************
 ## Firebase
 
 Utilizamos firebase-admin para:
@@ -212,7 +204,6 @@ Utilizamos firebase-admin para:
 - Para hacer cierre de sesión, borra el token de las cookies.
 
 
-************************************************AUTORES*************************************************
 ## Autores
 
 [Adni Sosa](https://github.com/AdniSosa)  | [Mariana Lobeto](https://github.com/MarianaLGM)
