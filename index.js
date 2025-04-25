@@ -26,7 +26,7 @@ admin.initializeApp({
 app.use(express.urlencoded({ extended: true }));////REQUERIR Y ACCEDER URLENCODED Y JSON:  Middleware para manejar datos de formulario y JSON
 app.use(express.json());
 app.use(cookieParser());
-app.use(helmet());
+//app.use(helmet());
 
 dbConnection()//conexión bbdd mongoo
 app.use('/', authRoutes);
